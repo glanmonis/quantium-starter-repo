@@ -147,9 +147,72 @@ print("Formatted file created successfully!")
 
 <hr>
 
-<!-- ===================== FUTURE TASKS ===================== -->
 
-<h2>Upcoming Tasks</h2>
+<!-- =====================TASK 3 ===================== -->
+
+<h2>Quantium Virtual Experience – Task 3</h2>
+
 <p>
-Additional tasks from the Quantium Virtual Experience will be added here as they are completed.
+This task focused on visualising the sales data generated in Task 2 using a Dash web application. The objective was to determine the impact of the Pink Morsel price increase on overall sales, providing Soul Foods with a clear and simple visual insight.
 </p>
+
+<h3>Task Objective</h3>
+<ul>
+  <li>Create a Dash app to visualise sales data from <b>formatted_sales_data.csv</b></li>
+  <li>Implement a line chart showing <b>Sales vs Date</b></li>
+  <li>Sort the data chronologically to ensure accurate visualization</li>
+  <li>Add a clear header for the dashboard</li>
+</ul>
+
+<h3>Steps Performed</h3>
+<ol>
+  <li>Imported required libraries: <b>pandas</b>, <b>Dash</b>, <b>Plotly Express</b></li>
+  <li>Loaded the cleaned sales data from Task 2</li>
+  <li>Converted the <b>Date</b> column to datetime type and sorted the data</li>
+  <li>Created a line chart using <b>Plotly Express</b> with appropriate axis labels and title</li>
+  <li>Initialized a Dash app and added a header along with the line chart to the layout</li>
+  <li>Ran the app locally to visualise the data</li>
+</ol>
+
+<h3>Python Code Snippet</h3>
+<pre>
+import pandas as pd
+from dash import Dash, html, dcc
+import plotly.express as px
+
+df = pd.read_csv("./formatted_sales_data.csv")
+df["Date"] = pd.to_datetime(df["Date"])
+df = df.sort_values("Date")
+
+fig = px.line(df, x="Date", y="Sales", title="Pink Morsel Sales Over Time")
+
+app = Dash(__name__)
+app.layout = html.Div([
+    html.H1("Soul Foods Sales Visualiser"),
+    dcc.Graph(figure=fig)
+])
+
+if __name__ == "__main__":
+    app.run(debug=True)
+</pre>
+
+<h3>Skills Gained</h3>
+<ul>
+  <li>Building interactive dashboards using Dash</li>
+  <li>Data visualization using Plotly Express</li>
+  <li>Handling and processing date-based data in pandas</li>
+  <li>Sorting and presenting data for clear business insights</li>
+</ul>
+
+<h3>Screenshot</h3>
+<p>Below is a small screenshot of the dashboard displaying the sales line chart:</p>
+<img src="screenshot_task3.png" alt="Task 3 Dash App Screenshot" width="500">
+
+
+<!-- =====================TASK 4 ===================== -->
+<h2>– Task 4</h2>
+
+
+
+<!-- =====================TASK 5 ===================== -->
+<!-- =====================TASK 6 ===================== -->
