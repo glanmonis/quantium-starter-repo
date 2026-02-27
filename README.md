@@ -1,8 +1,8 @@
 <h2>Quantium Virtual Experience – Task 1</h2>
 
 <p>
-This project was completed as part of the 
-<a href="https://www.theforage.com/" target="_blank">Quantium Virtual Experience Program on Forage</a>.
+This project was completed as part of the Quantium Virtual Experience Program on
+<a href="https://www.theforage.com/" target="_blank"> Forage </a>.
 The objective of this task was to set up a professional Python development environment and manage project dependencies.
 </p>
 
