@@ -206,7 +206,7 @@ if __name__ == "__main__":
 
 <h3>Screenshot</h3>
 <p>Below is a small screenshot of the dashboard displaying the sales line chart:</p>
-<img src="screenshot_task3.png" alt="Task 3 Dash App Screenshot" width="500">
+<img src="Screenshots/screenshot_task3.png" alt="Task 3 Dash App Screenshot" width="500">
 
 
 <!-- =====================TASK 4 ===================== -->
