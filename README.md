@@ -84,3 +84,102 @@ git push origin main
   <li>Visual Studio Code</li>
   <li>Git & GitHub</li>
 </ul>
+
+
+<hr>
+
+<h2>Task 2 – Sales Data Processing</h2>
+
+<p>
+This task is part of the 
+<a href="https://www.theforage.com/" target="_blank">
+Forage Data Analytics Virtual Experience
+</a>.
+The objective was to process raw CSV sales data and convert it into a clean, structured format for analysis.
+</p>
+
+<h3>Objective</h3>
+<ul>
+    <li>Combine multiple CSV files into one dataset</li>
+    <li>Clean and transform raw data</li>
+    <li>Calculate total sales for each transaction</li>
+</ul>
+
+<h3>Input Files</h3>
+<p>The following files were provided inside the <b>data/</b> folder:</p>
+<ul>
+    <li>daily_sales_data_0.csv</li>
+    <li>daily_sales_data_1.csv</li>
+    <li>daily_sales_data_2.csv</li>
+</ul>
+
+<h3>Processing Steps Performed</h3>
+<ol>
+    <li>Read all CSV files from the <b>data</b> directory</li>
+    <li>Removed the <b>$</b> symbol from the price column</li>
+    <li>Converted <b>price</b> to float and <b>quantity</b> to integer</li>
+    <li>Calculated total sales using:<br>
+        <code>Sales = price × quantity</code>
+    </li>
+    <li>Extracted required fields:
+        <ul>
+            <li>Sales</li>
+            <li>Date</li>
+            <li>Region</li>
+        </ul>
+    </li>
+    <li>Combined all records into a single output file</li>
+</ol>
+
+<h3>Output File</h3>
+<p>
+A new file was generated:<br>
+<b>formatted_sales_data.csv</b>
+</p>
+
+<h3>Python Script Used</h3>
+
+<pre>
+import csv
+import glob
+
+output_file = "formatted_sales_data.csv"
+input_files = glob.glob("data/*.csv")
+
+with open(output_file, "w", newline="") as outfile:
+    writer = csv.writer(outfile)
+    writer.writerow(["Sales", "Date", "Region"])
+    
+    for file in input_files:
+        with open(file, "r") as infile:
+            reader = csv.DictReader(infile)
+            
+            for row in reader:
+                price = float(row["price"].replace("$", ""))
+                quantity = int(row["quantity"])
+                sales = price * quantity
+                
+                writer.writerow([
+                    round(sales, 2),
+                    row["date"],
+                    row["region"]
+                ])
+
+print("Formatted file created successfully!")
+</pre>
+
+<h3>Skills Gained</h3>
+<ul>
+    <li>Python CSV handling</li>
+    <li>Data cleaning and transformation</li>
+    <li>File automation using glob</li>
+    <li>Basic data processing for analysis</li>
+</ul>
+
+<h3>Project Repository</h3>
+<p>
+View the complete project here: 
+<a href="YOUR_GITHUB_LINK_HERE" target="_blank">
+GitHub Repository
+</a>
+</p>
